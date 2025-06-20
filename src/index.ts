@@ -6,8 +6,6 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { WAConfigType, SDKEnums, SDKVersion, WhatsApp } from './WhatsApp';
+import WhatsApp from './WhatsApp';
 
-export { WhatsApp, SDKVersion };
-export type { WAConfigType, SDKEnums };
 export default WhatsApp;
