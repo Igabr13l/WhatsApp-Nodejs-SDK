@@ -24,17 +24,13 @@ import MessagesAPI from './api/messages';
 import PhoneNumbersAPI from './api/phoneNumbers';
 import TwoStepVerificationAPI from './api/twoStepVerification';
 import WebhooksAPI from './api/webhooks';
+import { importConfig } from './utils';
 
 const LIB_NAME = 'WHATSAPP';
 const LOG_LOCAL = false;
 const LOGGER = new Logger(LIB_NAME, process.env.DEBUG === 'true' || LOG_LOCAL);
 
 const headerPrefix = 'WA_SDK';
-
-const DEFAULT_BASE_URL = 'graph.facebook.com';
-const DEFAULT_LISTENER_PORT = 3000;
-const DEFAULT_MAX_RETRIES_AFTER_WAIT = 30;
-const DEFAULT_REQUEST_TIMEOUT = 20000;
 
 export default class WhatsApp implements WhatsAppClass {
 	config: WAConfigType;
