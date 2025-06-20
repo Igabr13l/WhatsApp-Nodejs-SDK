@@ -62,10 +62,12 @@ Aquí tienes un ejemplo de cómo instanciar el SDK:
 import WhatsApp from 'whatsapp-mdf';
 
 const wa = new WhatsApp({
-    CLOUD_API_ACCESS_TOKEN: process.env.CLOUD_API_ACCESS_TOKEN,
-    WA_PHONE_NUMBER_ID: process.env.WA_PHONE_NUMBER_ID,
-    WA_BUSINESS_ACCOUNT_ID: process.env.WA_BUSINESS_ACCOUNT_ID,
-    // ... y otras opciones de configuración
+    CLOUD_API_ACCESS_TOKEN:  'TU_TOKEN_DE_ACCESO',
+    WA_PHONE_NUMBER_ID:'1234567890',
+    WA_BUSINESS_ACCOUNT_ID: '1234567890',
+    WEBHOOK_VERIFICATION_TOKEN: 'tu_token_de_verificacion',
+    CLOUD_API_VERSION: 'v17.0',
+    DEBUG: true
 });
 ```
 
