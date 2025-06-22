@@ -43,9 +43,7 @@ export const importConfig = (partialConfig?: Partial<WAConfigType>) => {
 		[WAConfigEnum.BaseURL]: partialConfig?.WA_BASE_URL || DEFAULT_BASE_URL,
 		[WAConfigEnum.AppId]: partialConfig?.M4D_APP_ID || '',
 		[WAConfigEnum.AppSecret]: partialConfig?.M4D_APP_SECRET || '',
-		[WAConfigEnum.PhoneNumberId]:
-			partialConfig?.WA_PHONE_NUMBER_ID ||
-			parseInt(process.env.WA_PHONE_NUMBER_ID || ''),
+		[WAConfigEnum.PhoneNumberId]: partialConfig?.WA_PHONE_NUMBER_ID || 0,
 		[WAConfigEnum.BusinessAcctId]: partialConfig?.WA_BUSINESS_ACCOUNT_ID || '',
 		[WAConfigEnum.APIVersion]: partialConfig?.CLOUD_API_VERSION || '',
 		[WAConfigEnum.AccessToken]: partialConfig?.CLOUD_API_ACCESS_TOKEN || '',
