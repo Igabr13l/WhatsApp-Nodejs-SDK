@@ -6,13 +6,6 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-if (
-	process.env.NODE_ENV !== 'production' ||
-	process.env.TS_NODE_DEV === 'true'
-) {
-	import('dotenv').then((dotenv) => dotenv.config());
-}
-
 import { WAConfigType } from './types/config';
 import { WhatsAppClass } from './types/WhatsApp';
 import * as SDKEnums from './types/enums';

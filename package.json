@@ -1,6 +1,6 @@
 {
 	"name": "whatsapp-mdf",
-	"version": "1.0.7",
+	"version": "1.0.8",
 	"description": "SDK for interfacing with WhatsApp Business Platform in Typescript or Node.js using the Cloud API, hosted by Meta.",
 	"main": "./build/index.js",
 	"types": "./build/index.d.ts",
@@ -76,7 +76,6 @@
 		"babel-jest": "^29.5.0",
 		"babel-plugin-add-module-exports": "^1.0.4",
 		"cspell": "^6.31.1",
-		"dotenv": "^16.0.3",
 		"eslint": "~8.37.0",
 		"eslint-config-prettier": "~8.8.0",
 		"eslint-plugin-jest": "~27.2.1",
