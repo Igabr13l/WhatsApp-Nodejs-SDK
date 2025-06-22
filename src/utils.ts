@@ -20,12 +20,8 @@ const DEFAULT_LISTENER_PORT = 3000;
 const DEFAULT_MAX_RETRIES_AFTER_WAIT = 30;
 const DEFAULT_REQUEST_TIMEOUT = 20000;
 
-const emptyConfigChecker = (senderNumberId?: number) => {
-	if (
-		(process.env.WA_PHONE_NUMBER_ID === undefined ||
-			process.env.WA_PHONE_NUMBER_ID === '') &&
-		senderNumberId == undefined
-	) {
+const emptyConfigChecker = (partialConfig?: Partial<WAConfigType>) => {
+	if (!partialConfig?.WA_PHONE_NUMBER_ID) {
 		LOGGER.log(
 			`Environmental variable: WA_PHONE_NUMBER_ID and/or sender phone number id arguement is undefined.`,
 		);
@@ -33,11 +29,7 @@ const emptyConfigChecker = (senderNumberId?: number) => {
 	}
 
 	for (const value of Object.values(WARequiredConfigEnum)) {
-		LOGGER.log(value + ' ---- ' + process.env[`${value}`]);
-		if (
-			process.env[`${value}`] === undefined ||
-			process.env[`${value}`] === ''
-		) {
+		if (!partialConfig?.[value]) {
 			LOGGER.log(`Environmental variable: ${value} is undefined`);
 			throw new Error('Invalid configuration.');
 		}
@@ -45,7 +37,7 @@ const emptyConfigChecker = (senderNumberId?: number) => {
 };
 
 export const importConfig = (partialConfig?: Partial<WAConfigType>) => {
-	emptyConfigChecker(partialConfig?.WA_PHONE_NUMBER_ID);
+	emptyConfigChecker(partialConfig);
 
 	const config: WAConfigType = {
 		[WAConfigEnum.BaseURL]: partialConfig?.WA_BASE_URL || DEFAULT_BASE_URL,
